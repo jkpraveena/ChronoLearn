@@ -6,6 +6,7 @@ import { CourseCard } from "@/components/cards/course-card";
 import { BottomGlow } from "@/components/home/bottom-glow";
 import { ArrowRight, Star } from "lucide-react";
 
+/** Renders the ChronoLearn landing page and featured course catalog. */
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-[#FAF8F6] text-neutral-900 flex flex-col justify-between relative overflow-x-hidden selection:bg-primary-100 selection:text-primary-500">

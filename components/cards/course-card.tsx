@@ -15,6 +15,7 @@ export interface CourseCardProps {
   className?: string;
 }
 
+/** Renders a linked course summary with its icon, description, and metadata. */
 export function CourseCard({
   title,
   description,

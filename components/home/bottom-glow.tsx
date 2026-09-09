@@ -1,5 +1,6 @@
 import React from "react";
 
+/** Renders the decorative warm gradient displayed at the bottom of a page. */
 export function BottomGlow({ className = "" }: { className?: string }) {
   return (
     <div

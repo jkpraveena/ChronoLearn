@@ -28,6 +28,7 @@ import {
   ExternalLink,
 } from "lucide-react";
 
+/** Renders the interactive showcase for the application's design system. */
 export default function DesignSystemPage() {
   const [currentPage, setCurrentPage] = useState(1);
 

@@ -9,6 +9,7 @@ export interface HeaderNavProps {
   showUserActions?: boolean;
 }
 
+/** Renders the primary navigation header and optional user actions. */
 export function HeaderNav({
   activePath = "",
   className = "",

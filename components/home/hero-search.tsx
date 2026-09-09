@@ -9,6 +9,7 @@ export interface HeroSearchProps {
   placeholder?: string;
 }
 
+/** Renders the hero search form and supports the Cmd/Ctrl+K focus shortcut. */
 export function HeroSearch({
   className = "",
   placeholder = "Ask anything about your learning...",
