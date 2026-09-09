@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { VertexLogo } from "@/components/ui/logo";
 import { Bell } from "lucide-react";
+import { SignInButton, SignUpButton, Show, UserButton } from "@clerk/nextjs";
 
 export interface HeaderNavProps {
   activePath?: string;
@@ -48,27 +49,40 @@ export function HeaderNav({
         </nav>
       </div>
 
-      {/* Right: Notifications & User Avatar */}
+      {/* Right: Auth Controls & Profile */}
       {showUserActions && (
-        <div className="flex items-center gap-4">
-          <button
-            type="button"
-            aria-label="Notifications"
-            className="w-9 h-9 flex items-center justify-center rounded-full text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100/80 transition-colors"
-          >
-            <Bell className="w-5 h-5 stroke-[1.8]" />
-          </button>
+        <div className="flex items-center gap-3 md:gap-4">
+          <Show when="signed-out">
+            <SignInButton mode="modal">
+              <button className="text-[14px] font-medium text-neutral-700 hover:text-neutral-900 px-3 py-1.5 transition-colors cursor-pointer">
+                Sign In
+              </button>
+            </SignInButton>
 
-          {/* User Profile Avatar */}
-          <div
-            className="relative w-9 h-9 rounded-full overflow-hidden border border-neutral-200/90 shadow-xs bg-cover bg-center bg-no-org"
-            style={{
-              backgroundImage:
-                "url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=120&auto=format&fit=crop&q=80')",
-            }}
-          >
-            <span className="sr-only">User Profile</span>
-          </div>
+            <SignUpButton mode="modal">
+              <button className="inline-flex items-center justify-center text-[13px] font-medium bg-primary-500 hover:bg-[#EA580C] text-white px-4 py-2 rounded-[10px] shadow-xs hover:shadow transition-all cursor-pointer">
+                Sign Up
+              </button>
+            </SignUpButton>
+          </Show>
+
+          <Show when="signed-in">
+            <button
+              type="button"
+              aria-label="Notifications"
+              className="w-9 h-9 flex items-center justify-center rounded-full text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100/80 transition-colors"
+            >
+              <Bell className="w-5 h-5 stroke-[1.8]" />
+            </button>
+
+            <UserButton
+              appearance={{
+                elements: {
+                  avatarBox: "w-9 h-9 border border-neutral-200/90 shadow-xs",
+                },
+              }}
+            />
+          </Show>
         </div>
       )}
     </header>
